@@ -42,21 +42,6 @@
         .button:hover {
             background-color: #45a049;
         }
-        .status {
-            font-size: 1.5em;
-            margin: 1em 0;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .online {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .offline {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
     </style>
 </head>
 <body>
@@ -67,40 +52,11 @@
     <main>
         <h2>This is a test page to demonstrate a simple HTML structure and share donkeys</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tincidunt arcu.</p>
-
-        <!-- Website status will display here -->
-        <div id="status-container">
-            <p id="status" class="status">Checking website status...</p>
-        </div>
-
         <a href="#" class="button">Click Me</a>
     </main>
 
     <footer>
         <p>&copy; 2024 Test Page. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        async function checkStatus() {
-            const url = "https://nae27yt.github.io/";
-            const statusElement = document.getElementById('status');
-
-            try {
-                const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
-                if (response.ok || response.status === 0) {
-                    statusElement.textContent = 'Website is Online!';
-                    statusElement.className = 'status online';
-                } else {
-                    throw new Error('Not reachable');
-                }
-            } catch (error) {
-                statusElement.textContent = 'Website is Offline!';
-                statusElement.className = 'status offline';
-            }
-        }
-
-        // Automatically check status when the page loads
-        checkStatus();
-    </script>
 </body>
 </html>
