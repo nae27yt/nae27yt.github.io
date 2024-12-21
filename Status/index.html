@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Status</title>
+    <title>Status Page - nae27yt.github.io</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f9f9f9;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
+            padding: 1.5em;
+        }
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         h1 {
-            color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 0.5em;
         }
-        #status {
-            font-size: 2em;
-            padding: 20px;
+        .status {
+            margin: 1em 0;
+            padding: 1em;
             border-radius: 5px;
+            font-size: 1.2em;
         }
         .online {
             background-color: #d4edda;
@@ -33,33 +43,64 @@
             background-color: #f8d7da;
             color: #721c24;
         }
+        footer {
+            text-align: center;
+            margin-top: 2em;
+            padding: 1em;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .service {
+            margin: 1em 0;
+        }
     </style>
 </head>
 <body>
-    <h1>Status of <span id="website-name">nae27yt.github.io</span></h1>
-    <div id="status" class="">Checking...</div>
+    <header>
+        <h1>Status Page</h1>
+        <p>Monitoring the health of nae27yt.github.io and related services</p>
+    </header>
+
+    <main>
+        <div class="service">
+            <h2>nae27yt.github.io</h2>
+            <p id="site-status" class="status">Checking...</p>
+        </div>
+        <div class="service">
+            <h2>Example API</h2>
+            <p id="api-status" class="status">Checking...</p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 nae27yt.github.io Status Page. All rights reserved.
+    </footer>
 
     <script>
-        async function checkStatus() {
-            const url = "https://nae27yt.github.io/";
-            const statusElement = document.getElementById('status');
-
+        async function checkService(url, elementId) {
+            const element = document.getElementById(elementId);
             try {
                 const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
                 if (response.ok || response.status === 0) {
-                    statusElement.textContent = 'Website is Online!';
-                    statusElement.className = 'online';
+                    element.textContent = 'Online';
+                    element.className = 'status online';
                 } else {
                     throw new Error('Not reachable');
                 }
             } catch (error) {
-                statusElement.textContent = 'Website is Offline!';
-                statusElement.className = 'offline';
+                element.textContent = 'Offline';
+                element.className = 'status offline';
             }
         }
 
-        // Check status when the page loads
-        checkStatus();
+        // Services to check
+        const services = [
+            { url: 'https://nae27yt.github.io/', elementId: 'site-status' },
+            { url: 'https://api.example.com/', elementId: 'api-status' } // Replace with a real API URL if monitoring more services
+        ];
+
+        // Check all services
+        services.forEach(service => checkService(service.url, service.elementId));
     </script>
 </body>
 </html>
