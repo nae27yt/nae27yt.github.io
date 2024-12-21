@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #status {
+            font-size: 2em;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .online {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .offline {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Status of <span id="website-name">nae27yt.github.io</span></h1>
+    <div id="status" class="">Checking...</div>
+
+    <script>
+        async function checkStatus() {
+            const url = "https://nae27yt.github.io/";
+            const statusElement = document.getElementById('status');
+
+            try {
+                const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+                if (response.ok || response.status === 0) {
+                    statusElement.textContent = 'Website is Online!';
+                    statusElement.className = 'online';
+                } else {
+                    throw new Error('Not reachable');
+                }
+            } catch (error) {
+                statusElement.textContent = 'Website is Offline!';
+                statusElement.className = 'offline';
+            }
+        }
+
+        // Check status when the page loads
+        checkStatus();
+    </script>
+</body>
+</html>
