@@ -3,65 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <title>My FiveM Server</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #1e1e2f;
+            color: #ffffff;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
             text-align: center;
-            padding: 1em;
+            max-width: 600px;
         }
-        main {
-            padding: 2em;
-            text-align: center;
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+
         .button {
-            padding: 0.75em 1.5em;
-            background-color: #4CAF50;
-            color: white;
             text-decoration: none;
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px 25px;
             border-radius: 5px;
             font-size: 1rem;
-            transition: background-color 0.3s;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-align: center;
         }
+
         .button:hover {
-            background-color: #45a049;
-        }
-        iframe {
-            width: 80%;
-            height: 450px;
-            border: none;
-            margin-top: 20px;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Test Page</h1>
-    </header>
-
-    <main>
-        <h2>This is a test page to demonstrate a simple HTML structure and share donkeys</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a tincidunt arcu.</p>
-        <a href="#" class="button">Click Me</a>
-
-    <footer>
-        <p>&copy; 2024 Test Page. All Rights Reserved.</p>
-    </footer>
+    <h1>Welcome to Our FiveM Server</h1>
+    <p>Join our community and explore everything our server has to offer. Connect with us on our platforms below!</p>
+    <div class="button-container">
+        <a href="https://discord.com/invite/YOUR_DISCORD_LINK" class="button" target="_blank">Join Discord</a>
+        <a href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME" class="button" target="_blank">Visit TikTok</a>
+        <a href="https://YOUR_SUPPORT_PAGE_LINK" class="button" target="_blank">Support Page</a>
+        <a href="https://www.youtube.com/channel/YOUR_YOUTUBE_CHANNEL" class="button" target="_blank">Watch on YouTube</a>
+    </div>
 </body>
 </html>
