@@ -5,62 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My FiveM Server</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e2f;
-            color: #ffffff;
+        /* General Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #141423);
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        header {
+            width: 100%;
+            padding: 20px 10%;
             text-align: center;
-            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
 
+        header h1 {
+            font-size: 3rem;
+            color: #00ffcc;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            text-align: center;
+            padding: 50px 10%;
+        }
+
+        .hero img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #00ffcc;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #aaaaaa;
+            line-height: 1.6;
+        }
+
+        /* Button Container */
         .button-container {
+            margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
         }
 
         .button {
             text-decoration: none;
-            background-color: #007bff;
-            color: #ffffff;
+            background: #00ffcc;
+            color: #1e1e2f;
             padding: 15px 25px;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            transition: background-color 0.3s ease;
-            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background: #00bfa6;
+            box-shadow: 0 8px 25px rgba(0, 255, 204, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px 10%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+
+        footer a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Our FiveM Server</h1>
-    <p>Join our community and explore everything our server has to offer. Connect with us on our platforms below!</p>
-    <div class="button-container">
-        <a href="https://discord.com/invite/YOUR_DISCORD_LINK" class="button" target="_blank">Join Discord</a>
-        <a href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME" class="button" target="_blank">Visit TikTok</a>
-        <a href="https://YOUR_SUPPORT_PAGE_LINK" class="button" target="_blank">Support Page</a>
-        <a href="https://www.youtube.com/channel/YOUR_YOUTUBE_CHANNEL" class="button" target="_blank">Watch on YouTube</a>
+    <!-- Header -->
+    <header>
+        <h1>Welcome to My FiveM Server</h1>
+        <p>Your ultimate roleplay experience awaits.</p>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="https://via.placeholder.com/1200x600?text=Your+FiveM+Server+Image" alt="Server Showcase">
+        <h2>Explore Our Community</h2>
+        <p>Join our growing FiveM server where the possibilities are endless. Connect with players, explore custom-built worlds, and enjoy an immersive gaming experience!</p>
+        <div class="button-container">
+            <a href="https://discord.gg/MJ3yvGMpHn" class="button" target="_blank">Join Discord</a>
+            <a href="https://www.tiktok.com/@treyyearw00d?_t=ZT-8stJxc5Aew2&_r=1" class="button" target="_blank">Visit TikTok</a>
+            <a href="https://YOUR_SUPPORT_PAGE_LINK" class="button" target="_blank">Support Page</a>
+            <a href="https://youtube.com/@hellstormm?si=-RNbhVSdIkt8ZFLV" class="button" target="_blank">Watch on YouTube</a>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Grand County Roleplay | All Rights Reserved. <br> Built with 💚 by <a href="#">Your Name</a>.</p>
+    </footer>
 </body>
 </html>
