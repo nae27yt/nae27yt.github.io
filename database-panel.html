@@ -1,0 +1,96 @@
+<!-- Database Analytics Panel -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5><i class="fas fa-database"></i> Database Analytics</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="metric-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6>Total Commands</h6>
+                            <h3 id="db-total-commands">-</h3>
+                        </div>
+                        <i class="fas fa-terminal fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6>Total Errors</h6>
+                            <h3 id="db-total-errors">-</h3>
+                        </div>
+                        <i class="fas fa-exclamation-triangle fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6>DB Connections</h6>
+                            <h3 id="db-pool-size">-</h3>
+                        </div>
+                        <i class="fas fa-plug fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="metric-card">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6>DB Status</h6>
+                            <h3 id="db-status">-</h3>
+                        </div>
+                        <i class="fas fa-heartbeat fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h6>Recent Database Activity</h6>
+                <div id="db-activity" class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Command</th>
+                                <th>User</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="db-activity-table">
+                            <tr>
+                                <td colspan="4" class="text-center">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h6>Recent Errors</h6>
+                <div id="db-errors" class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="db-errors-table">
+                            <tr>
+                                <td colspan="3" class="text-center">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
