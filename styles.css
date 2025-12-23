@@ -1,0 +1,6 @@
+h1 {
+    /* Changes the font to 'Arial' or 'Helvetica' as a fallback */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Optional: you can also change the color */
+    color: darkblue;
+}
