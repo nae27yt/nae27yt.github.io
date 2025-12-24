@@ -1,26 +1,18 @@
+/* Typography */
 h1 {
-    /* Changes the font to 'Arial' or 'Helvetica' as a fallback */
     font-family: 'Times New Roman', Times, serif;
-    /* Optional: you can also change the color */
     color: rgb(179, 0, 255);
 }
 
-p {font-family: 'Times New Roman', Times, serif}
-
-
-body {
-  background-color: rgb(71, 71, 71); /* Dark blue-gray */
-  color: #ecf0f1; /* Light gray text */
-  font-family: sans-serif;
-  padding: 20px;
+p {
+    font-family: 'Times New Roman', Times, serif;
 }
 
+/* =========================
+   THEME VARIABLES
+   ========================= */
 
-
-
-/* Darkmode 
-
-/* Default (Light) Mode */
+/* Light Mode (default) */
 :root {
     --bg-color: #ffffff;
     --text-color: #333;
@@ -34,24 +26,32 @@ body.dark-mode {
     --button-bg: #333;
 }
 
-/* Apply variables */
+/* =========================
+   BASE LAYOUT
+   ========================= */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
     font-family: sans-serif;
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Header (optional, safe to keep) */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: var(--button-bg); /* Example: header color changes too */
+    background-color: var(--button-bg);
     border-radius: 8px;
 }
 
+/* =========================
+   BUTTONS
+   ========================= */
+
+/* Theme toggle */
 #theme-toggle {
     padding: 10px 15px;
     border: none;
@@ -62,6 +62,18 @@ header {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
 
-/*
-
+.btn:hover {
+    opacity: 0.85;
+}
