@@ -1,6 +1,65 @@
 h1 {
     /* Changes the font to 'Arial' or 'Helvetica' as a fallback */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     /* Optional: you can also change the color */
-    color: purple;
+    color: rgb(179, 0, 255);
 }
+
+p {font-family: 'Times New Roman', Times, serif}
+
+
+body {
+  background-color: rgb(71, 71, 71); /* Dark blue-gray */
+  color: #ecf0f1; /* Light gray text */
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+
+
+
+/* Darkmode 
+
+/* Default (Light) Mode */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333;
+    --button-bg: #eee;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f5f5f5;
+    --button-bg: #333;
+}
+
+/* Apply variables */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--button-bg); /* Example: header color changes too */
+    border-radius: 8px;
+}
+
+#theme-toggle {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
