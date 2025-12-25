@@ -51,29 +51,118 @@ header {
    BUTTONS
    ========================= */
 
-/* Theme toggle */
+/* Ripple Rings Effect for Dark Mode Button */
 #theme-toggle {
-    padding: 10px 15px;
-    border: none;
+    position: relative;
+    overflow: visible; /* allow rings to expand */
+    transition: all 0.3s ease;
+}
+
+/* Rings */
+#theme-toggle::before,
+#theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;      /* match button width */
+    height: 100%;     /* match button height */
+    border: 3px solid var(--text-color);
+    border-radius: 6px; /* match your button's rounded corners */
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hover glow */
+#theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 25px rgba(115, 110, 254, 0.6),
+        0 0 45px rgba(94, 252, 232, 0.4);
+}
+
+/* First ring */
+#theme-toggle:hover::before {
+    animation: ring-expand-theme 1.5s ease-out infinite;
+}
+
+/* Second ring (delayed) */
+#theme-toggle:hover::after {
+    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
+}
+
+/* Animation copied from your fx-rings */
+@keyframes ring-expand-theme {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.6);
+        opacity: 0;
+    }
+}
+/* COOLER Ripple Ring Dark Mode Button */
+#theme-toggle {
+    position: relative;
+    overflow: visible;
+    padding: 10px 15px; /* keep your original size */
     border-radius: 5px;
     cursor: pointer;
-    background-color: var(--text-color);
+    background: linear-gradient(135deg, var(--text-color), var(--button-bg));
     color: var(--bg-color);
-    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid var(--text-color);
+    transition: 
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    text-decoration: none;
+/* Hover glow + lift */
+#theme-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 12px rgba(115, 110, 254, 0.6),
+        0 0 25px rgba(94, 252, 232, 0.4);
+}
+
+/* Ripple Rings */
+#theme-toggle::before,
+#theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--text-color);
     border-radius: 6px;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    pointer-events: none;
 }
 
-.btn:hover {
-    opacity: 0.85;
+/* First ripple */
+#theme-toggle:hover::before {
+    animation: ring-expand-theme 1.5s ease-out infinite;
 }
+
+/* Second ripple (delayed) */
+#theme-toggle:hover::after {
+    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
+}
+
+/* Ripple animation */
+@keyframes ring-expand-theme {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.6);
+        opacity: 0;
+    }
+}
+
