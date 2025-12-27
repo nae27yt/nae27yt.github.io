@@ -149,20 +149,6 @@ header {
     animation: ring-expand-theme 1.5s ease-out infinite;
 }
 
-/* Second ripple (delayed) */
-#theme-toggle:hover::after {
-    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
+.btn:hover {
+    opacity: 0.85;
 }
-
-/* Ripple animation */
-@keyframes ring-expand-theme {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.6);
-        opacity: 0;
-    }
-}
-
