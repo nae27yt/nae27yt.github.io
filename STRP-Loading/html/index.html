@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Loading Screen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="js/config.js"></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <!-- Background container -->
+    <div id="background-container">
+        <!-- Background image or YouTube embed will be placed here dynamically -->
+    </div>
+    
+    <div class="background-overlay"></div>
+
+    <div class="main-container">
+        <!-- SIMPLIFIED HEADER - LOGO ONLY -->
+        <header>
+            <div class="logo-only-container">
+                <img src="img/logo.png" alt="Server Logo" class="server-logo logo-animated" id="server-logo">
+            </div>
+        </header>
+
+        <div class="content-container">
+            <!-- NEW CATEGORIES NAV TABS -->
+            <div class="categories-tabs">
+                <div class="tabs-container">
+                    <div class="tab active" data-tab="server-info">
+                        <i class="fas fa-server"></i>
+                        <span>Server Info</span>
+                    </div>
+                    <div class="tab" data-tab="staff">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Staff Team</span>
+                    </div>
+                    <div class="tab" data-tab="donors">
+                        <i class="fas fa-gem"></i>
+                        <span>Top Donors</span>
+                    </div>
+                    <div class="tab" data-tab="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </div>
+                    <div class="tab" data-tab="minigame">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Mini Game</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT PANELS -->
+            <div class="tab-content-container">
+                <!-- SERVER INFO TAB -->
+                <div class="tab-content active no-scroll" id="server-info-tab">
+                    <div class="server-info-panel">
+                        <div class="info-header">
+                            <h2>SERVER INFORMATION</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">SERVER UPTIME</div>
+                                    <div class="stat-value" id="stat-server-uptime">July 5th</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">ACTIVITIES</div>
+                                    <div class="stat-value" id="stat-activities">45 activities</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">VEHICLES</div>
+                                    <div class="stat-value" id="stat-vehicles">250 vehicles</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">JOBS</div>
+                                    <div class="stat-value" id="stat-jobs">25 jobs</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="server-features" id="feature-container">
+                            <div class="feature">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Custom Jobs</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>Custom Vehicles</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-home"></i>
+                                <span>Property System</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-secret"></i>
+                                <span>Criminal Activities</span>
+                            </div>
+                        </div>
+                        
+                        <!-- NEW: SERVER HIGHLIGHTS SECTION -->
+                        <div class="server-highlights">
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-street-view"></i>
+                                </div>
+                                <div class="highlight-title">Immersive Roleplay</div>
+                                <div class="highlight-text">Experience the most realistic and immersive roleplay with our custom scripts and dedicated community.</div>
+                            </div>
+                            
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="highlight-title">Active Staff</div>
+                                <div class="highlight-text">Our professional staff team is available 24/7 to assist players and ensure a fair gameplay experience.</div>
+                            </div>
+                            
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="highlight-title">Regular Events</div>
+                                <div class="highlight-text">Join our weekly community events with unique rewards and unforgettable experiences.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAFF TEAM TAB - ENHANCED WITH ADDITIONAL CONTENT -->
+                <div class="tab-content no-scroll" id="staff-tab">
+                    <div class="staff-panel">
+                        <div class="info-header">
+                            <h2>STAFF TEAM</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="staff-grid">                          
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin2.png')"></div>
+                                    <div class="staff-status offline"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">Haley</div>
+                                    <div class="staff-role developer">Server Owner</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge founder" title="Founder"><i class="fas fa-crown"></i></span>
+                                    <span class="badge dev" title="Developer"><i class="fas fa-code"></i></span>
+                                </div>
+                            </div>
+                            
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin3.png')"></div>
+                                    <div class="staff-status away"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">Jensen</div>
+                                    <div class="staff-role developer">Server Owner</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge founder" title="Founder"><i class="fas fa-crown"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin1.png')"></div>
+                                    <div class="staff-status online"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">James</div>
+                                    <div class="staff-role admin">Server Manager</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge founder" title="Founder"><i class="fas fa-crown"></i></span>
+                                    <span class="badge dev" title="Developer"><i class="fas fa-code"></i></span>
+                                </div>
+                            </div>
+                            
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin4.png')"></div>
+                                    <div class="staff-status online"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">Caleb</div>
+                                    <div class="staff-role developer">Lead Developer</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge dev" title="Developer"><i class="fas fa-code"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- NEW: STAFF POSITIONS SECTION -->
+                        <div class="staff-bottom">
+                            <div class="staff-positions">
+                                <div class="position-item">
+                                    <i class="fas fa-gavel"></i>
+                                    <div class="position-name">Administration</div>
+                                    <div class="position-desc">Server management & oversight</div>
+                                </div>
+                                
+                                <div class="position-item">
+                                    <i class="fas fa-code"></i>
+                                    <div class="position-name">Development</div>
+                                    <div class="position-desc">Custom scripts & features</div>
+                                </div>
+                                
+                                <div class="position-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div class="position-name">Moderation</div>
+                                    <div class="position-desc">Rule enforcement & support</div>
+                                </div>
+                                
+                                <div class="position-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div class="position-name">Events</div>
+                                    <div class="position-desc">Planning & coordination</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP DONORS TAB - LUXURIOUS REDESIGN -->
+                <div class="tab-content no-scroll" id="donors-tab">
+                    <div class="donors-panel">
+                        <div class="info-header">
+                            <h2>TOP DONORS</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="donor-vip">
+                            <div class="spotlight"></div>
+                            <div class="vip-ribbon">Top Supporter</div>
+                            
+                            <div class="donor-elite">
+                                <div class="donor-avatar-container">
+                                    <div class="donor-glow"></div>
+                                    <div class="donor-frame">
+                                        <div class="donor-avatar-lg">
+                                            <div class="avatar-background" style="background-image: url('img/avatars/donor1.png')"></div>
+                                        </div>
+                                    </div>
+                                    <div class="donor-crown">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="donor-info">
+                                    <div class="donor-name-lg">SuperFan</div>
+                                    <div class="donor-title">Diamond Supporter</div>
+                                    <div class="donor-amount-lg">$500 Contributed</div>
+                                    <div class="donor-quote">
+                                        Thanks for creating such an amazing server. The roleplay experience here is unmatched!
+                                    </div>
+                                </div>
+                                
+                                <div class="donor-perks">
+                                    <div class="donor-perk">VIP Access</div>
+                                    <div class="donor-perk">Custom Role</div>
+                                    <div class="donor-perk">Priority Queue</div>
+                                    <div class="donor-perk">Exclusive Vehicles</div>
+                                    <div class="donor-perk">Special Discord Role</div>
+                                </div>
+                                
+                                <div class="donor-badge-lg">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABOUT SERVER TAB - ENHANCED WITH ADDITIONAL CONTENT -->
+                <div class="tab-content no-scroll" id="about-tab">
+                    <div class="about-panel">
+                        <div class="info-header">
+                            <h2>ABOUT OUR SERVER</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="about-container">
+                            <div class="about-title">PREMIUM ROLEPLAY EXPERIENCE</div>
+                            <div class="about-description">
+                                NCHub was founded in 2022 with the goal of providing an immersive roleplay experience through custom scripts, exclusive features, and a dedicated community. In addition to its innovative developments, NCHub offers premium script packages like V2, allowing server owners to enhance and customize their gameplay.
+                            </div>
+                            
+                            <div class="about-features">
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- NEW: SERVER RULES SECTION -->
+                            <div class="about-bottom">
+                                <div class="about-rules">
+                                    <div class="rule-column">
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Roleplay at all times - Stay in character and respect the RP experience</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">No RDM (Random Deathmatch) - Don't kill without valid RP reason</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">No VDM (Vehicle Deathmatch) - Don't use vehicles as weapons</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="rule-column">
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Be respectful to all players - No harassment or discrimination</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Follow staff instructions - Staff decisions are final</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Report bugs - Don't exploit them for personal gain</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINI GAME TAB - MATCHING SCREENSHOT EXACTLY -->
+                <div class="tab-content no-scroll" id="minigame-tab">
+                    <div class="minigame-panel">
+                        <div class="info-header">
+                            <h2>SPEED CLICKER</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="click-game-container">
+                            <div class="click-game-stats">
+                                <div class="click-game-stat click-game-timer">
+                                    <div class="click-game-stat-label">TIME</div>
+                                    <div class="click-game-stat-value" id="click-game-time">10.0</div>
+                                </div>
+                                
+                                <div class="click-game-stat click-game-clicks">
+                                    <div class="click-game-stat-label">CLICKS</div>
+                                    <div class="click-game-stat-value" id="click-game-count">0</div>
+                                </div>
+                                
+                                <div class="click-game-stat click-game-cps">
+                                    <div class="click-game-stat-label">CPS</div>
+                                    <div class="click-game-stat-value" id="click-game-cps">0.0</div>
+                                </div>
+                            </div>
+                            
+                            <div class="click-game-target" id="click-game-target">
+                                <div class="click-game-target-inner">
+                                    <i class="fas fa-mouse-pointer" id="click-game-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading-section">
+                <div class="tip-container">
+                    <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="tip-content">
+                        <div class="tip-title">DID YOU KNOW?</div>
+                        <div class="tip-text" id="tip-text">Respect other players and follow server rules for a better experience.</div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="loading-status" id="loading-status">WELCOME TO THE SERVER!</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="loading-progress" style="width: 100%"></div>
+                    </div>
+                    <div class="loading-percentage" id="loading-percentage">100%</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be added dynamically from config -->
+            </div>
+            
+            <div class="audio-controls" id="audio-controls">
+                <div class="audio-info">
+                    <span>Now Playing:</span>
+                    <span id="track-name">Server Soundtrack</span>
+                </div>
+                <div class="audio-buttons">
+                    <button id="audio-toggle"><i class="fas fa-volume-up"></i></button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio preload -->
+    <audio id="background-music" preload="auto" loop>
+        <source src="music/background.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="js/script.js"></script>
+    <script src="js/click-game.js"></script>
+</body>
+</html>
