@@ -152,8 +152,6 @@ header {
 .btn:hover {
     opacity: 0.85;
 }
-<<<<<<< Updated upstream
-=======
 
 /* Ripple animation */
 @keyframes ring-expand-theme {
@@ -166,4 +164,3 @@ header {
         opacity: 0;
     }
 }
->>>>>>> Stashed changes
