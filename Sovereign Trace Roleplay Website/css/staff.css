@@ -117,7 +117,7 @@ header {
    ========================================= */
 
 .navbar {
-    width: 100%;
+    width: 96.9%;
     background-color: #000; /* BLACK NAVBAR */
     padding: 15px 20px;
     border-radius: 8px;
@@ -135,26 +135,26 @@ header {
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 900; /* EXTRA BOLD */
-    color: #fff; /* WHITE */
+    color: #7719ad; /* WHITE */
 }
 
 /* Links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
     z-index: 9999;
 }
 
 .nav-links li a {
-    text-decoration: none;
-    color: #fff; /* WHITE */
+    text-decoration: none;  
+    color: #d331fc; /* WHITE */
     font-weight: 700; /* BOLD */
     transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-    color: rgb(179, 0, 255);
+    color: rgb(56, 20, 122);
 }
 
 /* Hamburger Button */
