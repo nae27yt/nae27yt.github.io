@@ -7,7 +7,7 @@
 
     <!-- STRP CSS -->
     <link rel="stylesheet" href="css/staff.css">
-    <link rel="stylesheet" href="css/styles.css">
+   
 
     <!-- Nevera Base CSS -->
     <link rel="stylesheet" href="staffwall/assets/css/style.css">
@@ -29,6 +29,7 @@
 
     <!-- Custom Script -->
     <script src="js/script.js"></script>
+    <script src="js2.js"></script>
 </head>
 
 <body>
@@ -51,6 +52,19 @@
     <!-- Background Particles -->
     <div id="particles-js"></div>
     <div class="winter"></div>
+
+
+    	<div id="particles-js"></div>
+	<div class="winter"></div>
+	<div class="mini-buttons">
+		<button onclick="toggleMute(this)"><i class="bi bi-volume-up"></i></button>
+		<button onclick="togglePause(this)"><i class="bi bi-pause"></i></button>
+		<div class="inpt">
+			<input type="range" min="0" max="100" step="1" value="100" class="volume-slider" oninput="setVolume(this.value)">
+			<span>100%</span>
+		</div>
+	</div>
+
 
 
 

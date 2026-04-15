@@ -128,7 +128,7 @@ if (youtubeVideo.startsWith("https://www.youtube.com")) {
 	}
 }
 if (localAudio) {
-	$('body').append('<audio id="audioPlayer" src="audio.mp3" loop></audio>');
+	$('body').append('<audio id="audioPlayer" src="strpa.mp3" loop></audio>');
 	$('#audioPlayer')[0].play();
 	a = $('#audioPlayer');
 }

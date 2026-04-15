@@ -117,11 +117,11 @@ var videoOpacity = 0.3
 
 
 // Example link: https://www.youtube.com/watch?v=abcdefgh
-const youtubeVideo = ""
-const showYoutubeVideo = false
+const youtubeVideo = "https://www.youtube.com/watch?v=Zc31jb58xvE"
+const showYoutubeVideo = true
 
 // Local Video
-const enableLocalVideo = true
+const enableLocalVideo = false
 
 // Local audio
 const localAudio = true
