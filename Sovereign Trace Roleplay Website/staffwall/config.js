@@ -1,11 +1,3 @@
-/*=================================================================*\
-/* By: 			|	Nevera Development  							|
-/* FiveM: 		|	https://forum.cfx.re/u/neveradevelopment		|
-/* Discord: 	|	https://discord.gg/NeveraDev/tw28AqrgWU  		|
-/*=================================================================*/
-/* If you have any problems you can contact us via discord. <3     */
-
-
 var staff_team = [
 
 	{
@@ -113,7 +105,7 @@ const github = "" 		// https://example.com
 
 // Video Settings
 const videoBlur = 0
-var videoOpacity = 0.3
+var videoOpacity = 0.5
 
 
 // Example link: https://www.youtube.com/watch?v=abcdefgh

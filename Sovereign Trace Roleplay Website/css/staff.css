@@ -118,7 +118,7 @@ header {
 
 .navbar {
     width: 96.9%;
-    background-color: #000; /* BLACK NAVBAR */
+    /* background-color: #000000; BLACK NAVBAR */
     padding: 15px 20px;
     border-radius: 8px;
     display: flex;
@@ -135,7 +135,7 @@ header {
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 900; /* EXTRA BOLD */
-    color: #7719ad; /* WHITE */
+    color: #931ed6; /* WHITE */
 }
 
 /* Links */
@@ -155,6 +155,7 @@ header {
 
 .nav-links li a:hover {
     color: rgb(56, 20, 122);
+    cursor: pointer;
 }
 
 /* Hamburger Button */
@@ -179,7 +180,7 @@ header {
         position: absolute;
         top: 75px;
         right: 20px;
-        background-color: #000;
+        background-color: #9e1010;
         width: 200px;
         padding: 15px;
         border-radius: 8px;
