@@ -2,11 +2,15 @@
 const themeToggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Load saved theme on page load
+// Load saved theme on page load (default to dark mode)
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'light') {
+        body.classList.remove('dark-mode');
+    } else {
+        // Default to dark mode
         body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
     }
 });
 

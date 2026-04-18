@@ -1,119 +1,277 @@
 /* Typography */
 h1 {
-    font-family: 'Times New Roman', Times, serif;
-    color: rgb(179, 0, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e4e0e6;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #e100ff, #00f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 p {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
 }
 
 /* =========================
    THEME VARIABLES
    ========================= */
 
-/* Light Mode (default) */
+/* Dark Mode (default) */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333;
-    --button-bg: #eee;
+    --bg-color: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    --text-color: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-primary: #9b59b6;
+    --accent-secondary: #00d4ff;
+    --accent-tertiary: #1abc9c;
+    --border-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --gradient-primary: linear-gradient(135deg, #e100ff, #00f7ff);
+    --gradient-secondary: linear-gradient(135deg, #1abc9c, #3498db);
 }
 
-/* Dark Mode */
-body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #f5f5f5;
-    --button-bg: #333;
+/* Light Mode (fallback) */
+body:not(.dark-mode) {
+    --bg-color: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-color: #212529;
+    --text-secondary: #6c757d;
+    --accent-primary: #8e44ad;
+    --accent-secondary: #00bcd4;
+    --accent-tertiary: #0097a7;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 /* =========================
    BASE LAYOUT
    ========================= */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: sans-serif;
-    padding: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+* {
+    box-sizing: border-box;
 }
 
-/* Header (optional, safe to keep) */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(26, 188, 156, 0.1) 0%, transparent 50%);
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header */
 header {
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 20px var(--shadow-color);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+.navbar {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: var(--button-bg);
-    border-radius: 8px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+.nav-logo {
+    color: #9b59b6;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.25rem;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(0, 212, 255, 0.18));
+    border: 1px solid rgba(155, 89, 182, 0.4);
+    box-shadow: 0 10px 25px rgba(155, 89, 182, 0.12);
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.nav-links a:hover::before {
+    left: 0;
+}
+
+.nav-links a:hover {
+    background: linear-gradient(135deg, #e100ff, #00f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(155, 89, 182, 0.35);
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: none;
+    z-index: 1001;
+}
+
+.nav-toggle:hover {
+    background: rgba(155, 89, 182, 0.18);
+    transform: scale(1.05);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.active {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links a {
+        padding: 1rem 1.5rem;
+        margin: 0;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+        background: rgba(155, 89, 182, 0.1);
+        transform: translateX(5px);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
 }
 
 /* =========================
    BUTTONS
    ========================= */
 
-/* Ripple Rings Effect for Dark Mode Button */
-#theme-toggle {
-    position: relative;
-    overflow: visible; /* allow rings to expand */
-    transition: all 0.3s ease;
-}
-
-/* Rings */
-#theme-toggle::before,
-#theme-toggle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;      /* match button width */
-    height: 100%;     /* match button height */
-    border: 3px solid var(--text-color);
-    border-radius: 6px; /* match your button's rounded corners */
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Hover glow */
-#theme-toggle:hover {
-    transform: scale(1.05);
-    box-shadow:
-        0 0 25px rgba(115, 110, 254, 0.6),
-        0 0 45px rgba(94, 252, 232, 0.4);
-}
-
-/* First ring */
-#theme-toggle:hover::before {
-    animation: ring-expand-theme 1.5s ease-out infinite;
-}
-
-/* Second ring (delayed) */
-#theme-toggle:hover::after {
-    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
-}
-
-/* Animation copied from your fx-rings */
-@keyframes ring-expand-theme {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.6);
-        opacity: 0;
-    }
-}
-/* COOLER Ripple Ring Dark Mode Button */
+/* Purple Theme Toggle Button with Ripple Effect */
 #theme-toggle {
     position: relative;
     overflow: visible;
-    padding: 10px 15px; /* keep your original size */
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 25px;
     cursor: pointer;
-    background: linear-gradient(135deg, var(--text-color), var(--button-bg));
-    color: var(--bg-color);
-    border: 2px solid var(--text-color);
-    transition: 
+    background: var(--gradient-primary);
+    color: white;
+    border: 2px solid #9b59b6;
+    font-weight: 600;
+    transition:
         background-color 0.3s,
         color 0.3s,
         transform 0.25s ease,
@@ -124,8 +282,8 @@ header {
 #theme-toggle:hover {
     transform: translateY(-3px);
     box-shadow:
-        0 0 12px rgba(115, 110, 254, 0.6),
-        0 0 25px rgba(94, 252, 232, 0.4);
+        0 0 15px rgba(155, 89, 182, 0.6),
+        0 0 30px rgba(0, 212, 255, 0.4);
 }
 
 /* Ripple Rings */
@@ -137,8 +295,8 @@ header {
     left: 50%;
     width: 100%;
     height: 100%;
-    border: 2px solid var(--text-color);
-    border-radius: 6px;
+    border: 2px solid #9b59b6;
+    border-radius: 25px;
     transform: translate(-50%, -50%) scale(1);
     opacity: 0;
     pointer-events: none;
@@ -149,8 +307,9 @@ header {
     animation: ring-expand-theme 1.5s ease-out infinite;
 }
 
-.btn:hover {
-    opacity: 0.85;
+/* Second ripple (delayed) */
+#theme-toggle:hover::after {
+    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
 }
 
 /* Ripple animation */
@@ -162,83 +321,11 @@ header {
     100% {
         transform: translate(-50%, -50%) scale(1.6);
         opacity: 0;
-        
-        
     }
 }
-   /* =========================================
-   RESPONSIVE NAVBAR
-   ========================================= */
 
-.navbar {
-    width: 100%;
-    background-color: var(--button-bg);
-    padding: 15px 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
+/* =========================
+   GLOBAL RESPONSIVE NAVBAR
+   ========================= */
 
-/* Logo */
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-/* Links */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: rgb(179, 0, 255);
-}
-
-/* Hamburger Button */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--text-color);
-    cursor: pointer;
-}
-
-/* =========================================
-   MOBILE RESPONSIVE
-   ========================================= */
-
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 75px;
-        right: 20px;
-        background-color: var(--button-bg);
-        width: 200px;
-        padding: 15px;
-        border-radius: 8px;
-        flex-direction: column;
-        gap: 15px;
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
+/* No duplicate navbar rules remain here. */

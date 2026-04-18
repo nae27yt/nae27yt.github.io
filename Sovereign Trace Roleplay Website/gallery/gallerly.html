@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Trace Roleplay - City Gallery</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/STRP NO BG.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+
+<body>
+    <!-- Responsive Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">STRP</div>
+
+        <button class="nav-toggle" id="nav-toggle">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../strpabout.html">About STRP</a></li>
+            <li><a href="gallery/gallerly.html">City Gallery</a></li>
+            <li><a href="../staffwall.html">Staff Team</a></li>
+            <li><a href="https://193.31.31.37:3185">Join STRP</a></li>
+            <li><a href="https://discord.gg/CHFppWUHym">Discord</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Sovereign Trace City Gallery</h1>
+        <p>Explore the stunning screenshots from our roleplay server</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- API Configuration Info -->
+        <div class="gallery-config">
+            <p class="config-text">Loading gallery images...</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="gallery-controls">
+            <div class="pagination-controls">
+                <button id="prevPageBtn" class="nav-btn" disabled>← Previous</button>
+                <span id="pageInfo" class="page-info">Page 1</span>
+                <button id="nextPageBtn" class="nav-btn" disabled>Next →</button>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading images...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <p id="errorText"></p>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button id="theme-toggle" class="theme-toggle">Toggle Dark Mode</button>
+    </main>
+
+    <!-- Modal for Full Image View -->
+    <div class="image-modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-info">
+            <h3 id="modalFilename"></h3>
+            <p id="modalSize"></p>
+            <a id="modalDownload" class="download-btn" target="_blank">Download</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="gallery.js"></script>
+
+</body>
+</html>

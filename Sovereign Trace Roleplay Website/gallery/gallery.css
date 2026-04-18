@@ -1,0 +1,543 @@
+/* =========================
+   GALLERY STYLES - MODERN DESIGN
+   ========================= */
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #9b59b6;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #9b59b6, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-config {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-config::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.config-text {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   CONTROLS - MODERN DESIGN
+   ========================= */
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    gap: 2rem;
+}
+
+.nav-btn {
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(155, 89, 182, 0.5);
+    animation: pulseGlow 0.6s ease infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 10px 30px rgba(155, 89, 182, 0.5);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(155, 89, 182, 0.7), 0 0 20px rgba(0, 212, 255, 0.3);
+    }
+}
+
+.nav-btn:active {
+    transform: translateY(-1px);
+}
+
+.nav-btn:disabled {
+    background: var(--border-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-tertiary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.page-info {
+    font-weight: 600;
+    color: var(--accent-primary);
+    min-width: 100px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* =========================
+   GALLERY GRID - MODERN DESIGN
+   ========================= */
+
+.gallery-container {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    aspect-ratio: 16/10;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.03) rotateY(2deg);
+    box-shadow: 0 25px 70px rgba(155, 89, 182, 0.4);
+    animation: floatIn 0.5s ease;
+}
+
+@keyframes floatIn {
+    0% {
+        transform: translateY(-5px) scale(1) rotateY(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05) rotateY(1deg);
+    }
+    100% {
+        transform: translateY(-10px) scale(1.03) rotateY(2deg);
+        opacity: 1;
+    }
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(155, 89, 182, 0.1) 50%,
+        rgba(0, 212, 255, 0.1) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+.gallery-item-name {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    word-break: break-word;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+}
+
+.gallery-item-size {
+    color: var(--accent-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   LOADING & ERROR STATES - MODERN DESIGN
+   ========================= */
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    margin: 2rem auto;
+    max-width: 400px;
+}
+
+.spinner {
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--accent-primary);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.error-message {
+    background: linear-gradient(135deg, rgba(142, 68, 173, 0.1), rgba(155, 89, 182, 0.1));
+    border: 1px solid rgba(142, 68, 173, 0.3);
+    color: #9b59b6;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem auto;
+    max-width: 600px;
+    font-weight: 500;
+    box-shadow: 0 8px 32px rgba(142, 68, 173, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.error-message p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* =========================
+   MODAL - MODERN DESIGN
+   ========================= */
+
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.image-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--accent-primary);
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.8) rotate(-2deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.close-modal:hover {
+    background: var(--accent-primary);
+    transform: scale(1.1);
+    color: white;
+}
+
+.modal-info {
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    max-width: 90vw;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+.modal-info h3 {
+    margin: 0 0 1rem 0;
+    word-break: break-word;
+    color: var(--accent-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.modal-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+}
+
+/* =========================
+   THEME TOGGLE - MODERN DESIGN
+   ========================= */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    z-index: 1000;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(155, 89, 182, 0.3);
+    border-color: var(--accent-primary);
+}
+
+/* =========================
+   RESPONSIVE DESIGN - MODERN
+   ========================= */
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .gallery-controls {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .pagination-controls {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .modal-content {
+        max-width: 95vw;
+        max-height: 70vh;
+    }
+
+    .close-modal {
+        right: 1rem;
+        top: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+    }
+
+    .modal-info {
+        max-width: 95vw;
+        padding: 1.5rem;
+    }
+
+    .theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.8rem;
+    }
+
+    .gallery-config {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .loading-spinner {
+        margin: 1rem;
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .gallery-item-name {
+        font-size: 0.9rem;
+    }
+
+    .gallery-item-size {
+        font-size: 0.8rem;
+    }
+
+    .nav-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
