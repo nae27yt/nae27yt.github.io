@@ -1,7 +1,7 @@
 var staff_team = [
 
 	{
-		"name":"Haley",
+		"name":"",
 		"image":"https://cdn.discordapp.com/avatars/777405095909654578/1e211c59b0003e6240cfd0e29b5c98a1.webp?size=1024",
 		"rank":"CO | Commanding Owner/Founder"
 	},
@@ -93,11 +93,11 @@ const desc = "FiveM Roleplay server featuring an extensive collection of custom 
 
 
 // Social media
-const discord = "https://discord.gg/NeveraDev/tw28AqrgWU"  // If = "" then icon will not show up on screen
+const discord = "https://discord.gg/CHFppWUHym"  // If = "" then icon will not show up on screen
 const instagram = ""	// https://example.com
-const youtube = "" 		// https://example.com
+const youtube = "https://www.youtube.com/@SovereignTraceRoleplay" 		// https://example.com
 const twitter = "" 		// https://example.com
-const tiktok = ""  		// https://example.com
+const tiktok = "https://www.tiktok.com/@sovereigntraceroleplay"  		// https://example.com
 const facebook = ""		// https://example.com
 const twitch = "" 		// https://example.com
 const github = "" 		// https://example.com
