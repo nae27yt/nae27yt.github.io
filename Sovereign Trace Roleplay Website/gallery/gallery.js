@@ -4,7 +4,7 @@
 
 const API_BASE = 'https://api.fivemanage.com/api/v3/file';
 const ITEMS_PER_PAGE = 50;
-const API_KEY = 'API_KEY_HERE'; // Replace with your actual API key
+const API_KEY = 'qvD9O2lylAFyNsvzo8QkVcmlESeya10Q';
 
 let currentPage = 1;
 let currentApiKey = API_KEY;
