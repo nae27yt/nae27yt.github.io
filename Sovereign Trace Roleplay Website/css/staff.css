@@ -1,12 +1,10 @@
-/* =========================================
-   TYPOGRAPHY
-   ========================================= */
+/* Typography */
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #9b59b6;
+    color: #e4e0e6;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #9b59b6, #00d4ff);
+    background: linear-gradient(135deg, #e100ff, #00f7ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -17,160 +15,141 @@ p {
     font-weight: 400;
 }
 
-/* =========================================
+/* =========================
    THEME VARIABLES
-   ========================================= */
+   ========================= */
 
-/* Light Mode */
+/* Dark Mode (default) */
 :root {
+    --bg-color: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    --text-color: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-primary: #9b59b6;
+    --accent-secondary: #00d4ff;
+    --accent-tertiary: #1abc9c;
+    --border-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --gradient-primary: linear-gradient(135deg, #e100ff, #06edf5);
+    --gradient-secondary: linear-gradient(135deg, #1abc9c, #f8f8f8);
+}
+
+/* Light Mode (fallback) */
+body:not(.dark-mode) {
     --bg-color: #ffffff;
-    --text-color: #333;
-    --button-bg: #eee;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-color: #212529;
+    --text-secondary: #6c757d;
+    --accent-primary: #8e44ad;
+    --accent-secondary: #00bcd4;
+    --accent-tertiary: #c4f9ff;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode */
-body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-color: #f5f5f5;
-    --button-bg: #333;
-}
-
-/* =========================================
+/* =========================
    BASE LAYOUT
-   ========================================= */
+   ========================= */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
 body {
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     color: var(--text-color);
-    font-family: sans-serif;
-    padding: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(26, 188, 156, 0.1) 0%, transparent 50%);
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* =========================================
-   HEADER
-   ========================================= */
+/* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: var(--button-bg);
-    border-radius: 8px;
-    margin-top: 80px; /* Prevent overlap with fixed navbar */
-}
-
-/* =========================================
-   DARK MODE BUTTON (Ripple Effect)
-   ========================================= */
-#theme-toggle {
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 20px var(--shadow-color);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
     position: relative;
-    overflow: visible;
-    padding: 10px 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    background: var(--gradient-primary);
-    color: white;
-    border: 2px solid #9b59b6;
-    font-weight: 600;
-    transition:
-        background-color 0.3s,
-        color 0.3s,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    overflow: hidden;
 }
 
-#theme-toggle:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 0 15px rgba(155, 89, 182, 0.6),
-        0 0 30px rgba(0, 212, 255, 0.4);
-}
-
-#theme-toggle::before,
-#theme-toggle::after {
+header::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #9b59b6;
-    border-radius: 25px;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0.05;
+    z-index: -1;
 }
 
-#theme-toggle:hover::before {
-    animation: ring-expand-theme 1.5s ease-out infinite;
-}
-
-#theme-toggle:hover::after {
-    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
-}
-
-@keyframes ring-expand-theme {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.6);
-        opacity: 0;
-    }
-}
-
-/* =========================================
-   RESPONSIVE NAVBAR (STAFF WALL VERSION)
-   ========================================= */
-
+/* =========================
+   NAVIGATION
+   ========================= */
 .navbar {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1rem 2rem;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 100vw;
     box-sizing: border-box;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Logo */
 .nav-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
     color: #9b59b6;
-    background: linear-gradient(135deg, #8004b1, #00e1ff);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     transition: all 0.3s ease;
-    flex-shrink: 0;
 }
 
-/* Links */
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
 .nav-links {
-    list-style: none;
     display: flex;
     gap: 2rem;
+    list-style: none;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
 }
 
-.nav-links li a {
+.nav-links a {
+    color: rgb(204, 0, 255);
     text-decoration: none;
-    color: white;
     font-weight: 700;
     transition: all 0.3s ease;
     padding: 0.75rem 1.25rem;
@@ -178,88 +157,77 @@ header {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(0, 212, 255, 0.18));
-    border: 1px solid rgba(155, 89, 182, 0.4);
+    border: 1px solid rgb(178, 0, 248);
     box-shadow: 0 10px 25px rgba(155, 89, 182, 0.12);
 }
 
-.nav-links li a::before {
+.nav-links a::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    
     z-index: -1;
 }
 
-.nav-links li a:hover::before {
+.nav-links a:hover::before {
     left: 0;
-    animation: elasticSlide 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@keyframes elasticSlide {
-    0% {
-        left: -100%;
-        transform: scaleX(0.3);
-    }
-    50% {
-        left: 50%;
-        transform: scaleX(1.1);
-    }
-    100% {
-        left: 0;
-        transform: scaleX(1);
-    }
+.nav-links a:hover {
+    background: linear-gradient(135deg, #e100ff, #00f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(155, 89, 182, 0.35);
 }
-
-.nav-links li a:hover {
-    color: white;
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 10px 30px rgba(155, 89, 182, 0.6);
-    animation: elasticBounce 0.6s ease;
-}
-
-@keyframes elasticBounce {
-    0% {
-        transform: translateY(-2px) scale(1);
-    }
-    25% {
-        transform: translateY(-6px) scale(1.05);
-    }
-    50% {
-        transform: translateY(-8px) scale(1.1);
-    }
-    75% {
-        transform: translateY(-5px) scale(1.06);
-    }
-    100% {
-        transform: translateY(-4px) scale(1.08);
-    }
-}
-
-/* Hamburger Button */
 .nav-toggle {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: var(--text-color);
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
     z-index: 1001;
 }
 
-.nav-toggle:hover {
-    background: rgba(155, 89, 182, 0.2);
-    transform: scale(1.1);
+.nav-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 3px;
+    transition: 0.4s ease;
 }
 
-/* =========================================
-   MOBILE RESPONSIVE
-   ========================================= */
+/* Animate into X */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.DiscordWidget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
 @media (max-width: 768px) {
     .navbar {
         padding: 1rem;
@@ -285,8 +253,6 @@ header {
         visibility: hidden;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        border-radius: 0 0 8px 8px;
-        gap: 0;
     }
 
     .nav-links.active {
@@ -295,48 +261,65 @@ header {
         visibility: visible;
     }
 
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links li a {
+    .nav-links a {
         padding: 1rem 1.5rem;
         margin: 0;
         border-radius: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         transition: all 0.2s ease;
-        width: 100%;
-        text-align: left;
-        justify-content: flex-start;
     }
 
-    .nav-links li a:hover {
+    .nav-links a:hover {
         background: rgba(155, 89, 182, 0.1);
         transform: translateX(5px);
     }
 
-    .nav-links li:last-child a {
+    .nav-links a:last-child {
         border-bottom: none;
     }
 }
-    }
+
+/* Purple Theme Toggle Button with Ripple Effect */
+#theme-toggle {
+    position: relative;
+    overflow: hidden;
+    padding: 0.75rem 1.25rem;
+    border-radius: 40px;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(0, 212, 255, 0.18));
+    color: rgb(204, 0, 255);
+    border: 1px solid rgb(178, 0, 248);
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(155, 89, 182, 0.12);
+    transition: all 0.3s ease;
 }
 
-/* =========================================
-   STAFF WALL FIXES (Nevera Compatibility)
-   ========================================= */
-
-#particles-js,
-.winter,
-#youtube-video {
-    position: fixed;
+#theme-toggle::before {
+    content: '';
+    position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
 }
 
-#youtube-video {
-    pointer-events: none; /* Prevents blocking navbar clicks */
+/* Hover glow + lift */
+#theme-toggle:hover::before {
+    left: 0;
 }
+
+#theme-toggle:hover {
+    background: linear-gradient(135deg, #e100ff, #00f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(155, 89, 182, 0.35);
+}
+
+/* =========================
+   GLOBAL RESPONSIVE NAVBAR
+   ========================= */
+
+/* No duplicate navbar rules remain here. */

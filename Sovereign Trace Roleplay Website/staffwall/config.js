@@ -1,7 +1,7 @@
 var staff_team = [
 
 	{
-		"name":"",
+		"name":"Haley",
 		"image":"https://cdn.discordapp.com/avatars/777405095909654578/1e211c59b0003e6240cfd0e29b5c98a1.webp?size=1024",
 		"rank":"CO | Commanding Owner/Founder"
 	},

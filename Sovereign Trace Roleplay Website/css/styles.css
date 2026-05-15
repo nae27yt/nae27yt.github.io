@@ -31,8 +31,8 @@ p {
     --accent-tertiary: #1abc9c;
     --border-color: #333333;
     --shadow-color: rgba(0, 0, 0, 0.5);
-    --gradient-primary: linear-gradient(135deg, #e100ff, #00f7ff);
-    --gradient-secondary: linear-gradient(135deg, #1abc9c, #3498db);
+    --gradient-primary: linear-gradient(135deg, #e100ff, #06edf5);
+    --gradient-secondary: linear-gradient(135deg, #1abc9c, #f8f8f8);
 }
 
 /* Light Mode (fallback) */
@@ -44,7 +44,7 @@ body:not(.dark-mode) {
     --text-secondary: #6c757d;
     --accent-primary: #8e44ad;
     --accent-secondary: #00bcd4;
-    --accent-tertiary: #0097a7;
+    --accent-tertiary: #c4f9ff;
     --border-color: #dee2e6;
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
@@ -148,7 +148,7 @@ header::before {
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(204, 0, 255);
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s ease;
@@ -157,7 +157,7 @@ header::before {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(0, 212, 255, 0.18));
-    border: 1px solid rgba(155, 89, 182, 0.4);
+    border: 1px solid rgb(178, 0, 248);
     box-shadow: 0 10px 25px rgba(155, 89, 182, 0.12);
 }
 
@@ -183,23 +183,46 @@ header::before {
     transform: translateY(-2px);
     box-shadow: 0 12px 30px rgba(155, 89, 182, 0.35);
 }
-
 .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background: none;
     border: none;
-    color: var(--text-color);
-    font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    display: none;
     z-index: 1001;
 }
 
-.nav-toggle:hover {
-    background: rgba(155, 89, 182, 0.18);
-    transform: scale(1.05);
+.nav-toggle .bar {
+    width: 28px;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 3px;
+    transition: 0.4s ease;
+}
+
+/* Animate into X */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.DiscordWidget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* =========================
@@ -256,72 +279,43 @@ header::before {
     }
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
-
 /* Purple Theme Toggle Button with Ripple Effect */
 #theme-toggle {
     position: relative;
-    overflow: visible;
-    padding: 10px 15px;
-    border-radius: 25px;
+    overflow: hidden;
+    padding: 0.75rem 1.25rem;
+    border-radius: 40px;
     cursor: pointer;
-    background: var(--gradient-primary);
-    color: white;
-    border: 2px solid #9b59b6;
-    font-weight: 600;
-    transition:
-        background-color 0.3s,
-        color 0.3s,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    background: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(0, 212, 255, 0.18));
+    color: rgb(204, 0, 255);
+    border: 1px solid rgb(178, 0, 248);
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(155, 89, 182, 0.12);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 /* Hover glow + lift */
-#theme-toggle:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 0 15px rgba(155, 89, 182, 0.6),
-        0 0 30px rgba(0, 212, 255, 0.4);
-}
-
-/* Ripple Rings */
-#theme-toggle::before,
-#theme-toggle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #9b59b6;
-    border-radius: 25px;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* First ripple */
 #theme-toggle:hover::before {
-    animation: ring-expand-theme 1.5s ease-out infinite;
+    left: 0;
 }
 
-/* Second ripple (delayed) */
-#theme-toggle:hover::after {
-    animation: ring-expand-theme 1.5s ease-out 0.5s infinite;
-}
-
-/* Ripple animation */
-@keyframes ring-expand-theme {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.6);
-        opacity: 0;
-    }
+#theme-toggle:hover {
+    background: linear-gradient(135deg, #e100ff, #00f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(155, 89, 182, 0.35);
 }
 
 /* =========================
